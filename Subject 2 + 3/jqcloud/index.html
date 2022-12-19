@@ -1,0 +1,59 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>index</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+    <link href="jqcloud.min.css" rel="stylesheet" />
+</head>
+<body class="container">
+<h1>Hello</h1>
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="jqcloud.min.js"></script>
+    
+
+<div id="canvas"></div>
+<div>
+    <textarea id="input" class="form-control col-xs-6"></textarea>
+    <div>
+        <button id="btn" class="btn btn-success">Show Word Cloud</button>
+    </div>
+</div>
+<script>
+    var width = 500, height = 300;
+
+    var words = [
+        {text: "Lorem", weight: 13},
+        {text: "Ipsum", weight: 10.5},
+        {text: "Dolor", weight: 9.4},
+        {text: "Sit", weight: 8},
+        {text: "Amet", weight: 6.2},
+        {text: "Consectetur", weight: 5},
+        {text: "Adipiscing", weight: 5}
+    ];
+
+
+    $("#canvas").jQCloud(
+        words,
+        {
+            width,
+            height
+        }
+    );
+
+    
+    document.getElementById("btn").addEventListener("click", function () {
+        var lines = document.getElementById("input").value;
+
+        var data = lines.split("\n").map(function (line) {
+            var element = line.split(" ");
+            return { text: element[1], weight: element[0] }; 
+        });
+
+        $('#canvas').jQCloud("update", data);
+
+    });
+    
+</script>
+
+</body>
+</html>
