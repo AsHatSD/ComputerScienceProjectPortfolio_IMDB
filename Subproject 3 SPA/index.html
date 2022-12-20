@@ -40,6 +40,19 @@
         </table>
         <button id="addRow">New Row</button>
     </div>
+<br><br>
+    <div class="container">
+
+        <label for="uname"><b>Username</b></label>
+        <input type="text" placeholder="Enter Username" name="username" required>
+
+        <label for="psw"><b>Password</b></label>
+        <input type="password" placeholder="Enter Password" name="password" required>
+
+        <button type="submit">Login</button>
+
+    </div>
+
 
   <script>
       $(document).ready( function () {
@@ -83,14 +96,24 @@
 
   function movieModel() {
     this.tconst = ko.observable('tt0234871');
-    this.titletype= ko.observable('movie');
+    this.titletype = ko.observable('movie');
     this.Primarytitle = ko.observable('Death Stranding');
 
   };
 
-  ko.applyBindings(new movieModel()); 	
+  ko.applyBindings(new movieModel()); 	  
 
   </script> 
+
+  <script>
+    
+  function loginModel() {
+    this.username = ko.observable('admin');
+    this.password = ko.observable('admin');
+  };
+  ko.applyBindings(new loginModel()); 
+
+  </script>>
 
   </body>
 </html>
