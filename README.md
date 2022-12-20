@@ -1,5 +1,5 @@
 # ComputerScienceProjectPortfolio_IMDB
 
-Soon to be deleted after exam.
+Subject 2 Contains the NodeJs APi
 
-Contains API + SPA. Second half of the Full Stack Project.
+Subject 3 Contains the Frontend project
