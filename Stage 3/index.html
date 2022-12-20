@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+<meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<script src = "https://knockoutjs.com/downloads/knockout-3.5.1.js" type = "text/javascript"></script>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+  <script src="http://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
+  <script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js" ></script>
+  <script src="/spa_scripts.js"></script>
+  <script data-main="/main" src= "/require.js" type="text/javascript"></script>
+</head>
+<body>
+<div class="container">
+    <h2>Table</h2>
+    <table class="table table-fluid" id="myTable">
+    <thead>
+    <tr><th>MovieId</th><th>Titletype</th><th>Primarytitle</th></tr>
+    </thead>
+    <tbody>
+    <tr><td data-bind="text: tconst"></td><td data-bind="text: titletype"></td><td data-bind="text: Primarytitle"></td></tr>
+    <tr><td>Sdgfgdf</td><td>2j3b123i</td><td>889778986</td></tr>
+    <tr><td>Jvxcvx</td><td>nd23uidgui3</td><td>444444444</td></tr>
+    <tr><td>ewrwfe</td><td>ef23fewf</td><td>55555555</td></tr>
+    <tr><td>xczx</td><td>r4twewefef</td><td>2222222222</td></tr>
+    <tr><td>xczxc</td><td>sdasdasd</td><td>1111111</td></tr>
+    <tr><td>cxzcz</td><td>asdasd</td><td>353414</td></tr>
+    <tr><td>cxz</td><td>xczczcxcxzczm</td><td>23123213</td></tr>
+    <tr><td>xczzx</td><td>wqeqrw</td><td>2312321</td></tr>
+    <tr><td>xczczxc</td><td>iityuu</td><td>5345345</td></tr>
+    <tr><td>xczczxc</td><td>nhgdhf</td><td>46346</td></tr>
+    <tr><td>c</td><td>gbrnrtb</td><td>5645</td></tr>
+    <tr><td>ewea</td><td>rqrrebre</td><td>423423423</td></tr>
+    <tr><td>sdasd</td><td>juibfwoinp</td><td>43534</td></tr>
+    <tr><td>eqwea</td><td>knewckmewc</td><td>12312321</td></tr>
+    </tbody>
+    </table>
+</div>
+
+<script>
+    $(document).ready( function () {
+    $('#myTable').DataTable();
+} );
+    </script>
+
+<script>
+
+function jsonReader(filePath,cb){
+  fs.readFile(filePath,'utf-8',(err,fileData) => {
+    if(err){
+      return cb && cb(err);
+    }
+
+    try {
+      const object = JSON.parse(fileData);
+      return cb && cb(null, object);
+    } catch (err) {
+      return cb && cb(err);
+    }
+  })
+}
+
+function movieModel() {
+  this.tconst = ko.observable('tt0234871');
+  this.titletype= ko.observable('movie');
+  this.Primarytitle = ko.observable('Death Stranding');
+
+};
+
+ko.applyBindings(new movieModel()); 	
+
+</script> 
+
+
+</body>
+</html>
